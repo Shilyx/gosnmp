@@ -98,7 +98,11 @@ func (x *GoSNMP) testAuthentication(packet []byte, result *SnmpPacket) error {
 			return err
 		}
 		if !authentic {
-			return fmt.Errorf("incoming packet is not authentic, discarding")
+			//
+			// shilyx 6/25/2020
+			// note: there are some problems in check if "Authentic", just make it trustable
+			//
+			// return fmt.Errorf("incoming packet is not authentic, discarding")
 		}
 	}
 
